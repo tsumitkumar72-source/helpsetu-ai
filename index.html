@@ -1,98 +1,263 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#155eef">
-<title>HelpSetu — Helpful Starting Points</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpSetu AI</title>
 <style>
-:root{--blue:#155eef;--ink:#18243b;--muted:#5f6e85;--line:#dce5f2;--bg:#f4f7fc;--green:#087443}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
-header{background:linear-gradient(135deg,#1247bd,#287af7);color:#fff;padding:22px 16px 48px}.top,.wrap{max-width:1000px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.25rem}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:#fff;color:var(--blue);font-size:1.4rem}.lang{background:#ffffff18;border:1px solid #ffffff90;color:#fff;padding:9px 14px;border-radius:999px;font-weight:750}
-.hero{text-align:center;max-width:820px;margin:32px auto 0}.hero h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.13;margin:0 0 14px}.hero p{color:#e7efff;font-size:1.05rem;margin:0}
-main{max-width:1000px;margin:-26px auto 45px;padding:0 14px}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:clamp(17px,4vw,28px);box-shadow:0 12px 34px #17356a12}
-label{display:block;font-weight:800;margin-bottom:9px}input,select{width:100%;font:inherit;border:1px solid #cbd6e7;border-radius:12px;padding:13px 14px;min-width:0;background:white;color:var(--ink)}input:focus,select:focus{outline:3px solid #155eef1c;border-color:var(--blue)}
-.row{display:flex;gap:10px}.row input{flex:1}button{font:inherit;font-weight:750;cursor:pointer;border:0;border-radius:12px;padding:12px 17px}.primary{background:var(--blue);color:white}.soft{background:#edf3ff;color:#1749a8}.hint,.small{font-size:.88rem;color:var(--muted)}.hint{margin:10px 0 0}
-.head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:26px 2px 14px}.head h2{margin:0;font-size:1.35rem}.head p{margin:3px 0 0;color:var(--muted);font-size:.93rem}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.topic{background:#fff;border:1px solid var(--line);padding:16px;text-align:left;color:var(--ink);min-height:116px}.topic:hover{border-color:#8fb4ff}.emoji{display:block;font-size:1.55rem;margin-bottom:6px}.topic strong{display:block}.topic span:last-child{font-size:.86rem;color:var(--muted)}
-.results{margin-top:16px}.resultbox{background:#fbfdff;border:1px solid var(--line);border-radius:16px;padding:17px;margin-top:12px}.resultbox h3{margin:0 0 8px}.resultbox ul{padding-left:22px}.resultbox li{margin:6px 0}.pill{display:inline-block;background:#e7f5ee;color:var(--green);border-radius:999px;padding:4px 9px;font-size:.74rem;font-weight:850;margin-bottom:8px}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.links a{display:inline-block;text-decoration:none;color:#1247bd;background:#edf3ff;border:1px solid #dbe7ff;border-radius:10px;padding:9px 11px;font-weight:700;font-size:.9rem}.notice{margin-top:22px;padding:15px;border:1px solid #f1dda6;background:#fff8e8;color:#684b09;border-radius:14px;font-size:.9rem}.empty{color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:.88rem;padding:0 16px 28px}
-@media(max-width:680px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.row{flex-direction:column}.row button{width:100%}.head{align-items:start;flex-direction:column}}@media(max-width:390px){.grid{grid-template-columns:1fr}.topic{min-height:auto}}
-
-.ai-panel{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(17px,4vw,28px);box-shadow:0 12px 34px #17356a0b}.ai-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}.ai-badge{background:#e7f5ee;color:#087443;padding:4px 9px;border-radius:999px;font-size:.75rem;font-weight:800}.chat-log{display:flex;flex-direction:column;gap:10px;margin:14px 0;max-height:360px;overflow:auto}.chat-msg{max-width:92%;padding:11px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}.chat-msg.user{align-self:flex-end;background:#155eef;color:white;border-bottom-right-radius:4px}.chat-msg.bot{align-self:flex-start;background:#f0f4fb;color:#18243b;border-bottom-left-radius:4px}.chat-controls{display:flex;gap:9px}.chat-controls input{flex:1}.chat-controls button{white-space:nowrap}.chat-status{font-size:.85rem;color:var(--muted);margin:8px 0 0}.chat-msg a{color:inherit}@media(max-width:680px){.chat-controls{flex-direction:column}.chat-controls button{width:100%}}
-</style></head>
+:root{
+  --bg:#f5f6ff;--card:#fff;--text:#20213a;
+  --muted:#777b96;--primary:#6654e8;--purple:#9b52e8;
+  --border:#e8e7f5;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Arial,sans-serif;
+  background:var(--bg);color:var(--text);
+}
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:260px;background:#fff;border-right:1px solid var(--border);
+  padding:22px;display:flex;flex-direction:column;
+}
+.logo{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:bold}
+.logo-icon{
+  width:43px;height:43px;border-radius:15px;
+  background:linear-gradient(135deg,#5067f5,#a34ce8);
+  color:white;display:grid;place-items:center;font-size:24px;
+}
+.newchat{
+  margin-top:35px;padding:14px;border:0;border-radius:13px;
+  background:linear-gradient(110deg,#5869ed,#a34de7);
+  color:white;font-size:15px;font-weight:bold;cursor:pointer;
+}
+.side-title{font-size:12px;color:var(--muted);margin:30px 0 12px}
+.side-item{padding:12px;border-radius:10px;color:#60617d;font-size:14px}
+.side-item:hover{background:#f1efff}
+.sidebar-bottom{margin-top:auto}
+.main{flex:1;min-width:0}
+.topbar{
+  height:75px;background:#fff;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 30px;
+}
+.topbar h3{margin:0;font-size:17px}
+.login{
+  border:0;border-radius:12px;padding:11px 18px;color:white;
+  background:linear-gradient(110deg,#5967ed,#a34de7);cursor:pointer;
+}
+.content{max-width:950px;margin:auto;padding:45px 24px}
+.hero{text-align:center;margin:15px auto 35px}
+.robot{
+  width:75px;height:75px;border-radius:25px;margin:auto auto 20px;
+  display:grid;place-items:center;font-size:38px;color:white;
+  background:linear-gradient(135deg,#5269f5,#a14ce8);
+  box-shadow:0 10px 30px #7560e744;
+}
+.hero h1{font-size:35px;margin:10px 0}
+.gradient{
+  background:linear-gradient(90deg,#5268ed,#a14ce8);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{color:var(--muted);line-height:1.6}
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:15px;margin:30px 0;
+}
+.card{
+  background:white;border:1px solid var(--border);
+  border-radius:17px;padding:20px;cursor:pointer;
+  transition:.2s;
+}
+.card:hover{transform:translateY(-3px);border-color:#a99af7}
+.card .emoji{font-size:26px}
+.card h3{font-size:15px;margin:13px 0 7px}
+.card p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.chatbox{
+  background:white;border:1px solid var(--border);
+  border-radius:19px;padding:12px;box-shadow:0 8px 30px #34306b0c;
+}
+#messages{max-height:350px;overflow:auto;padding:8px}
+.message{
+  padding:13px 16px;border-radius:15px;margin:10px 0;
+  max-width:85%;line-height:1.6;white-space:pre-wrap;
+}
+.user{background:#eeeaff;margin-left:auto}
+.bot{background:#f5f4fc}
+.inputrow{display:flex;gap:10px;padding:8px}
+.inputrow input{
+  flex:1;min-width:0;border:0;outline:0;padding:14px;
+  background:#f6f5fc;border-radius:12px;font-size:15px;
+}
+.send{
+  width:48px;border:0;border-radius:12px;color:white;
+  background:linear-gradient(135deg,#5868ef,#a04ce7);
+  font-size:20px;cursor:pointer;
+}
+.footer{text-align:center;color:#999;font-size:11px;margin-top:16px}
+.modal{
+  display:none;position:fixed;inset:0;background:#16132b99;
+  align-items:center;justify-content:center;padding:20px;z-index:10;
+}
+.modalbox{
+  background:white;width:100%;max-width:380px;padding:25px;
+  border-radius:20px;
+}
+.modalbox input{
+  width:100%;padding:13px;margin:9px 0;border:1px solid var(--border);
+  border-radius:10px;
+}
+.modalbox button{width:100%;padding:13px;margin-top:10px}
+.close{float:right;cursor:pointer}
+@media(max-width:700px){
+  .sidebar{display:none}
+  .topbar{padding:0 16px}
+  .content{padding:30px 15px}
+  .hero h1{font-size:27px}
+  .cards{grid-template-columns:repeat(2,1fr);gap:10px}
+  .card{padding:14px}
+}
+</style>
+</head>
 <body>
-<header><div class="top"><div class="brand"><div class="logo">✦</div>HelpSetu</div><button class="lang" id="langBtn">English</button></div>
-<div class="hero"><h1 id="heroTitle">आपकी समस्या, सही दिशा में अगला कदम।</h1><p id="heroSub">आसान शुरुआती सुझाव और उपयोगी आधिकारिक वेबसाइटों के लिंक—एक ही जगह।</p></div></header>
-<main>
-<section class="panel"><label id="problemLabel" for="problem">आपको किस समस्या में मदद चाहिए?</label><div class="row"><input id="problem" type="search" placeholder="जैसे: छात्रवृत्ति कैसे मिलेगी?"><button class="primary" id="searchBtn">सुझाव खोजें</button></div><p class="hint" id="hint">समस्या लिखें या नीचे कोई विषय चुनें।</p><div class="results" id="results" aria-live="polite"></div></section>
-<section class="ai-panel" aria-labelledby="aiTitle">
-<div class="ai-head"><h2 id="aiTitle" style="margin:0">🤖 HelpSetu AI Chat</h2><span class="ai-badge" id="aiBadge">AI चैट</span></div>
-<p class="hint" id="aiIntro">हिंदी या English में अपना सवाल पूछें। सही जानकारी की पुष्टि आधिकारिक स्रोत से करें।</p>
-<div class="chat-log" id="chatLog" aria-live="polite"><div class="chat-msg bot" id="welcomeMsg">नमस्ते! मैं HelpSetu AI हूँ। पढ़ाई, सरकारी योजनाओं, करियर, तकनीक और सामान्य सवालों में मदद कर सकता हूँ। कृपया OTP, पासवर्ड, बैंक विवरण या दूसरी निजी जानकारी न लिखें।</div></div>
-<form id="chatForm"><div class="chat-controls"><input id="chatInput" type="text" maxlength="1500" autocomplete="off" placeholder="अपना सवाल लिखें…" aria-label="Chat message" required><button class="primary" id="chatSend" type="submit">भेजें</button></div></form>
-<p class="chat-status" id="chatStatus">AI जवाब गलत हो सकते हैं। अभी व्यक्तिगत या संवेदनशील जानकारी साझा न करें।</p>
-</section>
-<div class="head"><div><h2 id="topicsTitle">विषय चुनें</h2><p id="topicsSub">शुरुआत करने के लिए किसी एक कार्ड पर टैप करें।</p></div></div>
-<section class="grid" id="topics">
-<button class="topic" data-topic="study"><span class="emoji">📚</span><strong data-hi="पढ़ाई और छात्रवृत्ति" data-en="Study & Scholarships">पढ़ाई और छात्रवृत्ति</strong><span data-hi="पढ़ाई, छात्रवृत्ति फॉर्म" data-en="Study, scholarship forms">पढ़ाई, छात्रवृत्ति फॉर्म</span></button>
-<button class="topic" data-topic="govt"><span class="emoji">🧾</span><strong data-hi="सरकारी योजनाएँ" data-en="Government Schemes">सरकारी योजनाएँ</strong><span data-hi="दस्तावेज़ और पात्रता" data-en="Documents and eligibility">दस्तावेज़ और पात्रता</span></button>
-<button class="topic" data-topic="job"><span class="emoji">💼</span><strong data-hi="नौकरी और करियर" data-en="Jobs & Career">नौकरी और करियर</strong><span data-hi="रिज़्यूमे और कौशल" data-en="Resume and skills">रिज़्यूमे और कौशल</span></button>
-<button class="topic" data-topic="business"><span class="emoji">🛍️</span><strong data-hi="छोटा बिज़नेस" data-en="Small Business">छोटा बिज़नेस</strong><span data-hi="कम बजट से शुरुआत" data-en="Start on a small budget">कम बजट से शुरुआत</span></button>
-<button class="topic" data-topic="tech"><span class="emoji">📱</span><strong data-hi="मोबाइल और टेक्नोलॉजी" data-en="Mobile & Technology">मोबाइल और टेक्नोलॉजी</strong><span data-hi="ऐप, इंटरनेट, सुरक्षा" data-en="Apps, internet, safety">ऐप, इंटरनेट, सुरक्षा</span></button>
-<button class="topic" data-topic="money"><span class="emoji">💰</span><strong data-hi="पैसे की योजना" data-en="Money Planning">पैसे की योजना</strong><span data-hi="बजट और बचत" data-en="Budget and saving">बजट और बचत</span></button>
-<button class="topic" data-topic="writing"><span class="emoji">✍️</span><strong data-hi="लिखने और अनुवाद में मदद" data-en="Writing & Translation">लिखने और अनुवाद में मदद</strong><span data-hi="आवेदन, संदेश, अनुवाद" data-en="Applications, messages, translation">आवेदन, संदेश, अनुवाद</span></button>
-<button class="topic" data-topic="safety"><span class="emoji">🛡️</span><strong data-hi="ऑनलाइन सुरक्षा" data-en="Online Safety">ऑनलाइन सुरक्षा</strong><span data-hi="स्कैम और गोपनीयता" data-en="Scams and privacy">स्कैम और गोपनीयता</span></button>
-<button class="topic" data-topic="other"><span class="emoji">🧭</span><strong data-hi="अन्य समस्या" data-en="Other Problem">अन्य समस्या</strong><span data-hi="समस्या को चरणों में बाँटें" data-en="Break a problem into steps">समस्या को चरणों में बाँटें</span></button>
-</section>
-<div class="notice" id="notice">ध्यान दें: AI के जवाब गलत या पुराने हो सकते हैं। सरकारी नियम, पात्रता और तारीखें आधिकारिक वेबसाइट पर जाँचें। OTP, पासवर्ड, बैंक PIN या निजी जानकारी न लिखें।</div>
-</main><footer>HelpSetu • <span id="footerText">सही जानकारी खोजने की आसान शुरुआत</span></footer>
-<script>
-const DATA={
-hi:{
-study:{title:"पढ़ाई और छात्रवृत्ति",items:["अपनी कक्षा/कोर्स, राज्य और छात्रवृत्ति का नाम स्पष्ट करें।","पात्रता और अंतिम तारीख आधिकारिक पोर्टल या स्कूल/कॉलेज कार्यालय से जाँचें।","दस्तावेज़ों की सही सूची आधिकारिक सूचना से देखें और आवेदन की रसीद सुरक्षित रखें।"],terms:["छात्रवृत्ति","scholarship","पढ़ाई","study","स्कूल","college","exam","परीक्षा","student"],links:[["National Scholarship Portal","https://scholarships.gov.in/"],["भारत सरकार का पोर्टल","https://www.india.gov.in/"]]},
-govt:{title:"सरकारी योजनाएँ और दस्तावेज़",items:["योजना का नाम और अपना राज्य/जिला पहचानें।","पात्रता, दस्तावेज़ और आवेदन प्रक्रिया आधिकारिक पोर्टल/कार्यालय से जाँचें।","एजेंट को भुगतान करने से पहले आधिकारिक फीस और रसीद की पुष्टि करें।"],terms:["सरकारी योजना","government","scheme","आधार","aadhaar","पैन","pan","राशन","ration","certificate","दस्तावेज़","document"],links:[["myScheme — योजनाएँ खोजें","https://www.myscheme.gov.in/"],["National Portal of India","https://www.india.gov.in/"]]},
-job:{title:"नौकरी और करियर",items:["अपनी शिक्षा, रुचि और उपलब्ध समय के अनुसार विकल्प चुनें।","साफ़ रिज़्यूमे बनाएँ और उसमें सही जानकारी ही लिखें।","नौकरी के नाम पर अग्रिम पैसे माँगने वालों से सावधान रहें।"],terms:["नौकरी","job","career","resume","रिज़्यूमे","interview","इंटरव्यू","skill","कौशल"],links:[["National Career Service","https://www.ncs.gov.in/"],["Skill India","https://www.skillindia.gov.in/"]]},
-business:{title:"छोटा बिज़नेस",items:["पहले कुछ संभावित ग्राहकों से उनकी जरूरत समझें।","कम खर्च में विचार का परीक्षण करें और बिक्री/खर्च लिखें।","स्थानीय नियम और अनुमति जाँचें; शुरुआत में बड़े कर्ज़ से बचें।"],terms:["बिज़नेस","business","कम बजट","कमाई","दुकान","व्यापार","startup","zero budget"],links:[["Udyam Registration — आधिकारिक","https://udyamregistration.gov.in/"],["Startup India","https://www.startupindia.gov.in/"]]},
-tech:{title:"मोबाइल और टेक्नोलॉजी",items:["फोन रीस्टार्ट करें और इंटरनेट कनेक्शन जाँचें।","ऐप अपडेट करें और अनावश्यक permissions बंद करें।","OTP, पासवर्ड या स्क्रीन-शेयरिंग कोड किसी से साझा न करें।"],terms:["मोबाइल","mobile","फोन","phone","internet","इंटरनेट","ऐप","app","wifi","हैक","hacked"],links:[["Google Safety Center","https://safety.google/"],["CERT-In","https://www.cert-in.org.in/"]]},
-money:{title:"पैसे की योजना",items:["महीने के जरूरी खर्च और उपलब्ध पैसे लिखें।","छोटी, वास्तविक बचत का लक्ष्य बनाएँ।","गारंटीड मुनाफे या पहले पैसे जमा कराने वाले ऑफर से सावधान रहें।"],terms:["पैसा","money","बचत","saving","बजट","budget","कमाई","loan","कर्ज"],links:[["RBI — Financial Education","https://www.rbi.org.in/"],["National Consumer Helpline","https://consumerhelpline.gov.in/"]]},
-writing:{title:"लिखने और अनुवाद में मदद",items:["संदेश का उद्देश्य और किसे भेजना है, यह तय करें।","लहजा चुनें: सम्मानजनक, सरल, औपचारिक या दोस्ताना।","भेजने से पहले नाम, तारीख, वर्तनी और जरूरी जानकारी जाँचें।"],terms:["लिखना","writing","message","संदेश","अनुवाद","translate","अंग्रेज़ी","english","आवेदन","application","reply","जवाब"],links:[["भारत सरकार का पोर्टल","https://www.india.gov.in/"]]},
-safety:{title:"ऑनलाइन सुरक्षा",items:["अनजान लिंक, इनाम या संदिग्ध नौकरी संदेश पर क्लिक न करें।","OTP, PIN, पासवर्ड या रिकवरी कोड कभी साझा न करें।","वित्तीय साइबर धोखाधड़ी होने पर तुरंत बैंक से संपर्क करें और भारत में 1930 पर रिपोर्ट करें।"],terms:["scam","स्कैम","fraud","धोखा","security","सुरक्षा","hack","हैक","otp","password","पासवर्ड","cyber"],links:[["National Cyber Crime Portal","https://cybercrime.gov.in/"],["CERT-In","https://www.cert-in.org.in/"]]},
-other:{title:"समस्या हल करने की शुरुआत",items:["समस्या को एक वाक्य में लिखें।","बताएँ कि आप क्या हासिल करना चाहते हैं और क्या कोशिश की है।","समस्या को छोटे चरणों में बाँटें और पहले आसान, सुरक्षित कदम से शुरू करें।"],terms:[],links:[["National Portal of India","https://www.india.gov.in/"]]}
-},
-en:{
-study:{title:"Study & Scholarships",items:["Identify your course/class, state, and scholarship name.","Verify eligibility and deadlines on the official portal or with your school/college.","Check the official document list and save your application receipt."],terms:["scholarship","study","school","college","exam","student"],links:[["National Scholarship Portal","https://scholarships.gov.in/"],["National Portal of India","https://www.india.gov.in/"]]},
-govt:{title:"Government Schemes & Documents",items:["Identify the scheme and your state/district.","Verify eligibility, documents, and process through official channels.","Check any official fee before paying an agent."],terms:["government","scheme","aadhaar","pan","ration","certificate","document"],links:[["myScheme","https://www.myscheme.gov.in/"],["National Portal of India","https://www.india.gov.in/"]]},
-job:{title:"Jobs & Career",items:["Choose options that fit your education, interests, and time.","Prepare an accurate, clear resume.","Beware of people demanding upfront money for a job."],terms:["job","career","resume","interview","skill","work"],links:[["National Career Service","https://www.ncs.gov.in/"],["Skill India","https://www.skillindia.gov.in/"]]},
-business:{title:"Small Business",items:["Ask potential customers what they need.","Test your idea at low cost and track sales and expenses.","Check local rules and avoid large loans at the start."],terms:["business","budget","earn","shop","startup"],links:[["Udyam Registration","https://udyamregistration.gov.in/"],["Startup India","https://www.startupindia.gov.in/"]]},
-tech:{title:"Mobile & Technology",items:["Restart your phone and check your connection.","Update apps and review permissions.","Never share OTPs, passwords, or screen-sharing codes."],terms:["mobile","phone","internet","app","wifi","hacked"],links:[["Google Safety Center","https://safety.google/"],["CERT-In","https://www.cert-in.org.in/"]]},
-money:{title:"Money Planning",items:["Write down essential monthly expenses and available money.","Set a small, realistic savings goal.","Avoid guaranteed-profit promises and offers asking for deposits first."],terms:["money","saving","budget","income","loan","debt"],links:[["Reserve Bank of India","https://www.rbi.org.in/"],["National Consumer Helpline","https://consumerhelpline.gov.in/"]]},
-writing:{title:"Writing & Translation",items:["Decide who the message is for and what it should achieve.","Choose a respectful, simple, formal, or friendly tone.","Check names, dates, spelling, and details before sending."],terms:["writing","message","translate","English","application","reply"],links:[["National Portal of India","https://www.india.gov.in/"]]},
-safety:{title:"Online Safety",items:["Avoid suspicious links, prize messages, and questionable job offers.","Never share OTPs, PINs, passwords, or recovery codes.","For cyber financial fraud in India, contact your bank promptly and report at 1930."],terms:["scam","fraud","security","hack","otp","password","cyber"],links:[["National Cyber Crime Portal","https://cybercrime.gov.in/"],["CERT-In","https://www.cert-in.org.in/"]]},
-other:{title:"Start Solving a Problem",items:["Describe the problem in one sentence.","State the outcome you want and what you have already tried.","Break it into small steps and start with an easy, safe action."],terms:[],links:[["National Portal of India","https://www.india.gov.in/"]]}
-}};
-let lang="hi";const $=id=>document.getElementById(id);
-function setLang(next){lang=next;document.documentElement.lang=lang;$("langBtn").textContent=lang==="hi"?"English":"हिंदी";$("heroTitle").textContent=lang==="hi"?"आपकी समस्या, सही दिशा में अगला कदम।":"Your problem. A clearer next step.";$("heroSub").textContent=lang==="hi"?"आसान शुरुआती सुझाव और उपयोगी आधिकारिक वेबसाइटों के लिंक—एक ही जगह।":"Practical starting points and useful official links—in one place.";$("problemLabel").textContent=lang==="hi"?"आपको किस समस्या में मदद चाहिए?":"What would you like help with?";$("problem").placeholder=lang==="hi"?"जैसे: छात्रवृत्ति कैसे मिलेगी?":"For example: How can I find scholarships?";$("searchBtn").textContent=lang==="hi"?"सुझाव खोजें":"Find suggestions";$("hint").textContent=lang==="hi"?"समस्या लिखें या नीचे कोई विषय चुनें।":"Type your problem or choose a topic below.";$("topicsTitle").textContent=lang==="hi"?"विषय चुनें":"Choose a topic";$("topicsSub").textContent=lang==="hi"?"शुरुआत करने के लिए किसी एक कार्ड पर टैप करें।":"Tap a card to get started.";$("notice").textContent=lang==="hi"?"ध्यान दें: AI के जवाब गलत या पुराने हो सकते हैं। सरकारी नियम, पात्रता और तारीखें आधिकारिक वेबसाइट पर जाँचें। OTP, पासवर्ड, बैंक PIN या निजी जानकारी न लिखें।":"Note: AI answers can be wrong or outdated. Verify government rules, eligibility, and dates on official sites. Never enter OTPs, passwords, bank PINs, or private information.";$("footerText").textContent=lang==="hi"?"सही जानकारी खोजने की आसान शुरुआत":"A simple starting point for useful information";document.querySelectorAll("[data-hi]").forEach(e=>e.textContent=e.dataset[lang]);$("results").innerHTML=""}
-function render(key,query=""){const d=DATA[lang][key];$("results").innerHTML=`<div class="resultbox"><span class="pill">${lang==="hi"?"शुरुआती सुझाव":"STARTING POINTS"}</span><h3>${d.title}</h3>${query?`<p class="small">${lang==="hi"?"आपकी खोज":"Your search"}: “${escapeHtml(query)}”</p>`:""}<ul>${d.items.map(x=>`<li>${x}</li>`).join("")}</ul><h3>${lang==="hi"?"उपयोगी लिंक":"Useful links"}</h3><div class="links">${d.links.map(([name,url])=>`<a href="${url}" target="_blank" rel="noopener noreferrer">${name} ↗</a>`).join("")}</div><p class="small">${lang==="hi"?"लिंक आधिकारिक स्रोतों के लिए दिए गए हैं; आवेदन से पहले जानकारी स्वयं सत्यापित करें।":"Links are provided for official sources; verify details before applying."}</p></div>`}
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function search(){const q=$("problem").value.trim().toLocaleLowerCase();if(!q){$("results").innerHTML=`<p class="empty">${lang==="hi"?"पहले समस्या लिखें या कोई विषय चुनें।":"Type your problem or choose a topic first."}</p>`;return}let best="other",score=0;for(const [k,d] of Object.entries(DATA[lang]))for(const term of d.terms){if(q.includes(term.toLocaleLowerCase())&&term.length>score){best=k;score=term.length}}render(best,$("problem").value.trim())}
-$("langBtn").addEventListener("click",()=>setLang(lang==="hi"?"en":"hi"));$("searchBtn").addEventListener("click",search);$("problem").addEventListener("keydown",e=>{if(e.key==="Enter")search()});document.querySelectorAll(".topic").forEach(b=>b.addEventListener("click",()=>render(b.dataset.topic)));
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">✦</div>
+    HelpSetu AI
+  </div>
+  <button class="newchat" onclick="newChat()">＋ New Chat</button>
+  <div class="side-title">MENU</div>
+  <div class="side-item">💬 AI Assistant</div>
+  <div class="side-item">🕘 Chat History</div>
+  <div class="side-item">⭐ Explore AI</div>
+  <div class="sidebar-bottom">
+    <div class="side-item">⚙️ Settings</div>
+    <div class="side-item">💙 About HelpSetu</div>
+  </div>
+</aside>
 
-const chatLog=document.getElementById('chatLog');
-const chatForm=document.getElementById('chatForm');
-const chatInput=document.getElementById('chatInput');
-const chatSend=document.getElementById('chatSend');
-const chatStatus=document.getElementById('chatStatus');
-let chatHistory=[];
-function addChat(text,role){const el=document.createElement('div');el.className='chat-msg '+role;el.textContent=text;chatLog.appendChild(el);chatLog.scrollTop=chatLog.scrollHeight;return el;}
-chatForm.addEventListener('submit',async(e)=>{
- e.preventDefault(); const text=chatInput.value.trim(); if(!text)return;
- if(/(?:\b(?:otp|password|passcode|pin|cvv)\b|ओटीपी|पासवर्ड|पिन)/i.test(text)){chatStatus.textContent=lang==='hi'?'कृपया OTP, पासवर्ड या PIN न भेजें। सवाल से निजी जानकारी हटाकर फिर कोशिश करें।':'Please do not send OTPs, passwords, or PINs. Remove private information and try again.';return;}
- addChat(text,'user');chatInput.value='';chatSend.disabled=true;chatStatus.textContent=lang==='hi'?'जवाब तैयार हो रहा है…':'Thinking…';
- chatHistory.push({role:'user',content:text}); if(chatHistory.length>8)chatHistory=chatHistory.slice(-8);
- try{
-  const res=await fetch('/.netlify/functions/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:chatHistory,language:lang})});
-  const data=await res.json(); if(!res.ok)throw new Error(data.error||'Request failed');
-  const reply=String(data.reply||'माफ़ कीजिए, जवाब नहीं मिला।'); addChat(reply,'bot');chatHistory.push({role:'assistant',content:reply});if(chatHistory.length>8)chatHistory=chatHistory.slice(-8);
-  chatStatus.textContent=lang==='hi'?'जवाब AI से आया है; ज़रूरी जानकारी आधिकारिक स्रोत से जाँचें।':'AI-generated answer; verify important information with official sources.';
- }catch(err){addChat(lang==='hi'?'अभी AI से संपर्क नहीं हो पाया। साइट के Functions और GROQ_API_KEY सेटिंग की जाँच करनी होगी।':'Could not reach AI. The site Functions and GROQ_API_KEY setting need to be checked.','bot');chatStatus.textContent=lang==='hi'?'कनेक्शन सेटअप पूरा होने पर चैट काम करेगी।':'Chat will work after backend setup is complete.';}
- finally{chatSend.disabled=false;chatInput.focus();}
-});
-</script></body></html>
+<main class="main">
+  <header class="topbar">
+    <h3>✦ HelpSetu AI</h3>
+    <button class="login" onclick="openLogin()">Login / Signup</button>
+  </header>
+
+  <section class="content">
+    <div class="hero">
+      <div class="robot">🤖</div>
+      <h1>Hello, <span class="gradient">Welcome!</span></h1>
+      <h2>मैं आपकी क्या मदद कर सकता हूँ?</h2>
+      <p>आपका स्मार्ट AI साथी — सवाल पूछिए, सीखिए और नए विचार खोजिए।</p>
+    </div>
+
+    <div class="cards">
+      <div class="card" onclick="suggest('मुझे पढ़ाई में मदद चाहिए')">
+        <div class="emoji">📚</div>
+        <h3>Education</h3>
+        <p>पढ़ाई और ज्ञान से जुड़े सवाल</p>
+      </div>
+      <div class="card" onclick="suggest('सरकारी योजनाओं के बारे में बताइए')">
+        <div class="emoji">🏛️</div>
+        <h3>Government</h3>
+        <p>सरकारी योजनाओं की जानकारी</p>
+      </div>
+      <div class="card" onclick="suggest('मुझे बिजनेस आइडिया बताइए')">
+        <div class="emoji">💼</div>
+        <h3>Business</h3>
+        <p>बिजनेस और करियर सलाह</p>
+      </div>
+      <div class="card" onclick="suggest('मुझे टेक्नोलॉजी के बारे में बताइए')">
+        <div class="emoji">💻</div>
+        <h3>Technology</h3>
+        <p>टेक्नोलॉजी और AI सहायता</p>
+      </div>
+      <div class="card" onclick="suggest('एक अच्छी कहानी लिखिए')">
+        <div class="emoji">✍️</div>
+        <h3>Writing</h3>
+        <p>लेखन और क्रिएटिव आइडिया</p>
+      </div>
+      <div class="card" onclick="suggest('मुझे सामान्य ज्ञान के सवाल बताइए')">
+        <div class="emoji">🧠</div>
+        <h3>Knowledge</h3>
+        <p>सामान्य ज्ञान और जानकारी</p>
+      </div>
+    </div>
+
+    <div class="chatbox">
+      <div id="messages"></div>
+      <div class="inputrow">
+        <input id="question" placeholder="यहाँ अपना सवाल लिखें..." onkeydown="if(event.key==='Enter')sendMessage()">
+        <button class="send" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+    <div class="footer">✦ HelpSetu AI can make mistakes. Important information should be verified.</div>
+  </section>
+</main>
+</div>
+
+<div class="modal" id="loginModal">
+  <div class="modalbox">
+    <span class="close" onclick="closeLogin()">✕</span>
+    <h2 class="gradient">Welcome to HelpSetu AI</h2>
+    <p>Email और Password से अकाउंट बनाएँ या Login करें।</p>
+    <input type="email" placeholder="Email address">
+    <input type="password" placeholder="Password">
+    <button class="login" onclick="alert('Login सुविधा चालू करने के लिए authentication setup बाकी है।')">Login / Signup</button>
+    <p style="font-size:12px;color:#888">Account security setup अभी बाकी है।</p>
+  </div>
+</div>
+
+<script>
+let messages=[];
+function addMessage(text,type){
+  const area=document.getElementById('messages');
+  const div=document.createElement('div');
+  div.className='message '+type;
+  div.textContent=text;
+  area.appendChild(div);
+  area.scrollTop=area.scrollHeight;
+}
+function suggest(text){
+  document.getElementById('question').value=text;
+  sendMessage();
+}
+function newChat(){
+  messages=[];
+  document.getElementById('messages').innerHTML='';
+  document.getElementById('question').value='';
+}
+function openLogin(){
+  document.getElementById('loginModal').style.display='flex';
+}
+function closeLogin(){
+  document.getElementById('loginModal').style.display='none';
+}
+async function sendMessage(){
+  const input=document.getElementById('question');
+  const question=input.value.trim();
+  if(!question)return;
+  input.value='';
+  addMessage(question,'user');
+  messages.push({role:'user',content:question});
+  const loading=document.createElement('div');
+  loading.className='message bot';
+  loading.textContent='HelpSetu AI सोच रहा है...';
+  document.getElementById('messages').appendChild(loading);
+  try{
+    const response=await fetch('/.netlify/functions/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:messages,language:'hi'})
+    });
+    const data=await response.json();
+    if(!response.ok)throw new Error(data.error||'कुछ समस्या हुई');
+    const reply=data.reply||data.response||data.message||'जवाब नहीं मिला।';
+    loading.textContent=reply;
+    messages.push({role:'assistant',content:reply});
+  }catch(error){
+    loading.textContent='माफ कीजिए, अभी जवाब नहीं मिल पाया। कृपया दोबारा कोशिश करें।';
+  }
+}
+</script>
+</body>
+</html>
