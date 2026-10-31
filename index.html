@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -5,258 +6,229 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HelpSetu AI</title>
 <style>
-:root{
-  --bg:#f5f6ff;--card:#fff;--text:#20213a;
-  --muted:#777b96;--primary:#6654e8;--purple:#9b52e8;
-  --border:#e8e7f5;
-}
 *{box-sizing:border-box}
-body{
-  margin:0;font-family:Arial,sans-serif;
-  background:var(--bg);color:var(--text);
-}
-.app{display:flex;min-height:100vh}
-.sidebar{
-  width:260px;background:#fff;border-right:1px solid var(--border);
-  padding:22px;display:flex;flex-direction:column;
-}
-.logo{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:bold}
-.logo-icon{
-  width:43px;height:43px;border-radius:15px;
-  background:linear-gradient(135deg,#5067f5,#a34ce8);
-  color:white;display:grid;place-items:center;font-size:24px;
-}
-.newchat{
-  margin-top:35px;padding:14px;border:0;border-radius:13px;
-  background:linear-gradient(110deg,#5869ed,#a34de7);
-  color:white;font-size:15px;font-weight:bold;cursor:pointer;
-}
-.side-title{font-size:12px;color:var(--muted);margin:30px 0 12px}
-.side-item{padding:12px;border-radius:10px;color:#60617d;font-size:14px}
-.side-item:hover{background:#f1efff}
-.sidebar-bottom{margin-top:auto}
-.main{flex:1;min-width:0}
-.topbar{
-  height:75px;background:#fff;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;padding:0 30px;
-}
-.topbar h3{margin:0;font-size:17px}
-.login{
-  border:0;border-radius:12px;padding:11px 18px;color:white;
-  background:linear-gradient(110deg,#5967ed,#a34de7);cursor:pointer;
-}
-.content{max-width:950px;margin:auto;padding:45px 24px}
-.hero{text-align:center;margin:15px auto 35px}
-.robot{
-  width:75px;height:75px;border-radius:25px;margin:auto auto 20px;
-  display:grid;place-items:center;font-size:38px;color:white;
-  background:linear-gradient(135deg,#5269f5,#a14ce8);
-  box-shadow:0 10px 30px #7560e744;
-}
-.hero h1{font-size:35px;margin:10px 0}
-.gradient{
-  background:linear-gradient(90deg,#5268ed,#a14ce8);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero p{color:var(--muted);line-height:1.6}
-.cards{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:15px;margin:30px 0;
-}
-.card{
-  background:white;border:1px solid var(--border);
-  border-radius:17px;padding:20px;cursor:pointer;
-  transition:.2s;
-}
-.card:hover{transform:translateY(-3px);border-color:#a99af7}
-.card .emoji{font-size:26px}
-.card h3{font-size:15px;margin:13px 0 7px}
-.card p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
-.chatbox{
-  background:white;border:1px solid var(--border);
-  border-radius:19px;padding:12px;box-shadow:0 8px 30px #34306b0c;
-}
-#messages{max-height:350px;overflow:auto;padding:8px}
-.message{
-  padding:13px 16px;border-radius:15px;margin:10px 0;
-  max-width:85%;line-height:1.6;white-space:pre-wrap;
-}
-.user{background:#eeeaff;margin-left:auto}
-.bot{background:#f5f4fc}
-.inputrow{display:flex;gap:10px;padding:8px}
-.inputrow input{
-  flex:1;min-width:0;border:0;outline:0;padding:14px;
-  background:#f6f5fc;border-radius:12px;font-size:15px;
-}
-.send{
-  width:48px;border:0;border-radius:12px;color:white;
-  background:linear-gradient(135deg,#5868ef,#a04ce7);
-  font-size:20px;cursor:pointer;
-}
-.footer{text-align:center;color:#999;font-size:11px;margin-top:16px}
-.modal{
-  display:none;position:fixed;inset:0;background:#16132b99;
-  align-items:center;justify-content:center;padding:20px;z-index:10;
-}
-.modalbox{
-  background:white;width:100%;max-width:380px;padding:25px;
-  border-radius:20px;
-}
-.modalbox input{
-  width:100%;padding:13px;margin:9px 0;border:1px solid var(--border);
-  border-radius:10px;
-}
-.modalbox button{width:100%;padding:13px;margin-top:10px}
-.close{float:right;cursor:pointer}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6ff;color:#20243a}
+.app{display:flex;height:100vh;overflow:hidden}
+.sidebar{width:260px;background:#171b35;color:white;padding:20px;display:flex;flex-direction:column;flex-shrink:0}
+.logo{font-size:23px;font-weight:bold;margin-bottom:25px;color:#9eb7ff}
+.newchat,.nav button{width:100%;padding:13px;border:0;border-radius:12px;text-align:left;font-size:15px;cursor:pointer}
+.newchat{background:linear-gradient(100deg,#536dfe,#9b59ff);color:white;margin-bottom:20px}
+.nav button{background:transparent;color:#d9def8;margin:4px 0}
+.nav button:hover,.nav button.active{background:#30385f}
+.sidebottom{margin-top:auto}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.topbar{height:65px;background:white;border-bottom:1px solid #e7e9f4;display:flex;align-items:center;padding:0 18px;gap:12px}
+.menu{border:0;background:#eef0ff;padding:9px 12px;border-radius:9px;font-size:20px;cursor:pointer}
+.topname{font-weight:bold;font-size:18px}
+.topright{margin-left:auto;color:#68708d;font-size:13px}
+.content{flex:1;overflow:auto;padding:25px 18px}
+.welcome{text-align:center;margin:35px auto 25px;max-width:650px}
+.robot{font-size:45px}
+.welcome h1{font-size:28px;margin:8px 0;color:#343d79}
+.welcome p{color:#747b96}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:650px;margin:25px auto}
+.topic{background:white;border:1px solid #e7e9f6;padding:17px;border-radius:15px;text-align:left;cursor:pointer;color:#343957}
+.topic b{display:block;margin-bottom:6px}
+.topic span{font-size:13px;color:#8188a1}
+.messages{max-width:800px;margin:0 auto}
+.msg{padding:13px 16px;border-radius:16px;margin:12px 0;max-width:85%;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.user{background:#536dfe;color:white;margin-left:auto}
+.bot{background:white;border:1px solid #e7e9f4;color:#252b44}
+.composer-wrap{padding:12px 18px 18px;background:#f4f6ff}
+.composer{max-width:850px;margin:auto;background:white;border:1px solid #dfe3f4;border-radius:18px;padding:10px;box-shadow:0 5px 20px #26356b12}
+#prompt{width:100%;border:0;outline:0;resize:none;font:16px Arial;padding:9px;min-height:45px;max-height:120px}
+.tools{display:flex;align-items:center;gap:8px}
+.toolbtn{border:0;background:#eef0ff;color:#4554a3;border-radius:10px;padding:10px 13px;cursor:pointer;font-size:15px}
+.send{margin-left:auto;background:linear-gradient(100deg,#536dfe,#925bff);color:white}
+#file{display:none}
+#preview{font-size:13px;color:#68708d;padding:5px}
+.page{display:none;max-width:750px;margin:15px auto;background:white;padding:22px;border-radius:16px}
+.page h2{color:#394785}
+.plan{border:1px solid #e3e6f4;padding:18px;border-radius:14px;margin:12px 0}
+.plan h3{margin:0 0 8px}
+.small{font-size:13px;color:#777f99}
+.settingrow{padding:14px 0;border-bottom:1px solid #eee}
 @media(max-width:700px){
-  .sidebar{display:none}
-  .topbar{padding:0 16px}
-  .content{padding:30px 15px}
-  .hero h1{font-size:27px}
-  .cards{grid-template-columns:repeat(2,1fr);gap:10px}
-  .card{padding:14px}
+.sidebar{position:fixed;z-index:5;left:-270px;top:0;bottom:0;transition:.25s}
+.sidebar.open{left:0}
+.content{padding:15px 12px}
+.cards{gap:8px}
+.topic{padding:13px}
+.welcome{margin-top:22px}
 }
 </style>
 </head>
 <body>
 <div class="app">
-<aside class="sidebar">
-  <div class="logo">
-    <div class="logo-icon">✦</div>
-    HelpSetu AI
-  </div>
+<aside class="sidebar" id="sidebar">
+  <div class="logo">🤖 HelpSetu AI</div>
   <button class="newchat" onclick="newChat()">＋ New Chat</button>
-  <div class="side-title">MENU</div>
-  <div class="side-item">💬 AI Assistant</div>
-  <div class="side-item">🕘 Chat History</div>
-  <div class="side-item">⭐ Explore AI</div>
-  <div class="sidebar-bottom">
-    <div class="side-item">⚙️ Settings</div>
-    <div class="side-item">💙 About HelpSetu</div>
+  <div class="nav">
+    <button class="active" onclick="showHome()">🏠 Home</button>
+    <button onclick="showHistory()">🕘 Chat History</button>
+    <button onclick="showPremium()">⭐ Premium Plans</button>
+    <button onclick="showSettings()">⚙️ Settings</button>
+  </div>
+  <div class="sidebottom nav">
+    <button onclick="toggleTheme()">🌙 Dark Mode</button>
+    <button onclick="showLogin()">👤 Login / Signup</button>
   </div>
 </aside>
 
 <main class="main">
   <header class="topbar">
-    <h3>✦ HelpSetu AI</h3>
-    <button class="login" onclick="openLogin()">Login / Signup</button>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+    <div class="topname">HelpSetu AI</div>
+    <div class="topright">Your AI Assistant</div>
   </header>
 
-  <section class="content">
-    <div class="hero">
-      <div class="robot">🤖</div>
-      <h1>Hello, <span class="gradient">Welcome!</span></h1>
-      <h2>मैं आपकी क्या मदद कर सकता हूँ?</h2>
-      <p>आपका स्मार्ट AI साथी — सवाल पूछिए, सीखिए और नए विचार खोजिए।</p>
-    </div>
-
-    <div class="cards">
-      <div class="card" onclick="suggest('मुझे पढ़ाई में मदद चाहिए')">
-        <div class="emoji">📚</div>
-        <h3>Education</h3>
-        <p>पढ़ाई और ज्ञान से जुड़े सवाल</p>
+  <section class="content" id="content">
+    <div id="home">
+      <div class="welcome">
+        <div class="robot">🤖</div>
+        <h1>नमस्ते! मैं HelpSetu AI हूँ</h1>
+        <p>आपकी मदद के लिए हमेशा तैयार। आज आप क्या जानना चाहते हैं?</p>
       </div>
-      <div class="card" onclick="suggest('सरकारी योजनाओं के बारे में बताइए')">
-        <div class="emoji">🏛️</div>
-        <h3>Government</h3>
-        <p>सरकारी योजनाओं की जानकारी</p>
-      </div>
-      <div class="card" onclick="suggest('मुझे बिजनेस आइडिया बताइए')">
-        <div class="emoji">💼</div>
-        <h3>Business</h3>
-        <p>बिजनेस और करियर सलाह</p>
-      </div>
-      <div class="card" onclick="suggest('मुझे टेक्नोलॉजी के बारे में बताइए')">
-        <div class="emoji">💻</div>
-        <h3>Technology</h3>
-        <p>टेक्नोलॉजी और AI सहायता</p>
-      </div>
-      <div class="card" onclick="suggest('एक अच्छी कहानी लिखिए')">
-        <div class="emoji">✍️</div>
-        <h3>Writing</h3>
-        <p>लेखन और क्रिएटिव आइडिया</p>
-      </div>
-      <div class="card" onclick="suggest('मुझे सामान्य ज्ञान के सवाल बताइए')">
-        <div class="emoji">🧠</div>
-        <h3>Knowledge</h3>
-        <p>सामान्य ज्ञान और जानकारी</p>
+      <div class="cards">
+        <button class="topic" onclick="quickAsk('मुझे अंग्रेजी सीखने में मदद कीजिए')"><b>📚 पढ़ाई में मदद</b><span>सीखें और अपने सवाल पूछें</span></button>
+        <button class="topic" onclick="quickAsk('मुझे एक अच्छा बिजनेस आइडिया बताइए')"><b>💡 बिजनेस आइडिया</b><span>नए विचार और सुझाव</span></button>
+        <button class="topic" onclick="quickAsk('मेरे लिए एक अच्छा ईमेल लिखिए')"><b>✍️ लिखने में मदद</b><span>ईमेल, संदेश और पोस्ट</span></button>
+        <button class="topic" onclick="quickAsk('मुझे टेक्नोलॉजी के बारे में बताइए')"><b>💻 टेक्नोलॉजी</b><span>टेक और AI से जुड़े सवाल</span></button>
       </div>
     </div>
 
-    <div class="chatbox">
-      <div id="messages"></div>
-      <div class="inputrow">
-        <input id="question" placeholder="यहाँ अपना सवाल लिखें..." onkeydown="if(event.key==='Enter')sendMessage()">
-        <button class="send" onclick="sendMessage()">➤</button>
-      </div>
+    <div class="messages" id="messages"></div>
+
+    <div class="page" id="history">
+      <h2>🕘 Chat History</h2>
+      <p>इस डिवाइस पर इस सत्र की बातचीत:</p>
+      <div id="historylist">अभी कोई पुरानी चैट नहीं है।</div>
     </div>
-    <div class="footer">✦ HelpSetu AI can make mistakes. Important information should be verified.</div>
+
+    <div class="page" id="premium">
+      <h2>⭐ HelpSetu AI Premium</h2>
+      <p>ये अभी केवल दिखाने के लिए प्लान हैं। भुगतान की सुविधा अभी चालू नहीं है।</p>
+      <div class="plan"><h3>Free Plan</h3><h2>₹0</h2><p>सामान्य AI चैट</p></div>
+      <div class="plan"><h3>Pro Plan</h3><h2>₹199 / महीना</h2><p>प्रस्तावित Premium सुविधाएँ</p><span class="small">अभी खरीदने की सुविधा उपलब्ध नहीं है।</span></div>
+      <div class="plan"><h3>Premium Plan</h3><h2>₹499 / महीना</h2><p>प्रस्तावित अतिरिक्त सुविधाएँ</p><span class="small">अभी खरीदने की सुविधा उपलब्ध नहीं है।</span></div>
+    </div>
+
+    <div class="page" id="settings">
+      <h2>⚙️ Settings</h2>
+      <div class="settingrow">भाषा: <select id="language"><option value="hi">हिंदी</option><option value="en">English</option></select></div>
+      <div class="settingrow">थीम: <button class="toolbtn" onclick="toggleTheme()">Light / Dark बदलें</button></div>
+      <div class="settingrow">ऐप: HelpSetu AI</div>
+    </div>
+
+    <div class="page" id="login">
+      <h2>👤 Login / Signup</h2>
+      <p class="small">यह अभी केवल डिजाइन है। असली ईमेल लॉगिन चालू करने के लिए Authentication सेटअप करना होगा।</p>
+      <input id="email" type="email" placeholder="Email address" style="padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:9px">
+      <input id="password" type="password" placeholder="Password" style="padding:12px;width:100%;margin:8px 0;border:1px solid #ddd;border-radius:9px">
+      <button class="toolbtn" onclick="alert('Email login अभी सेटअप नहीं हुआ है।')">Login / Signup</button>
+    </div>
   </section>
+
+  <footer class="composer-wrap">
+    <div class="composer">
+      <div id="preview"></div>
+      <textarea id="prompt" placeholder="यहाँ अपना सवाल लिखें..." rows="1"></textarea>
+      <div class="tools">
+        <button class="toolbtn" onclick="document.getElementById('file').click()">＋ फोटो / फाइल</button>
+        <input id="file" type="file" accept="image/*" onchange="showFile(this)">
+        <button class="toolbtn" id="voice" onclick="startVoice()">🎙️ Voice</button>
+        <button class="toolbtn send" onclick="sendMessage()">➤ Send</button>
+      </div>
+    </div>
+    <div class="small" style="text-align:center;margin-top:8px">HelpSetu AI गलत जवाब दे सकता है। ज़रूरी जानकारी जाँच लें।</div>
+  </footer>
 </main>
 </div>
 
-<div class="modal" id="loginModal">
-  <div class="modalbox">
-    <span class="close" onclick="closeLogin()">✕</span>
-    <h2 class="gradient">Welcome to HelpSetu AI</h2>
-    <p>Email और Password से अकाउंट बनाएँ या Login करें।</p>
-    <input type="email" placeholder="Email address">
-    <input type="password" placeholder="Password">
-    <button class="login" onclick="alert('Login सुविधा चालू करने के लिए authentication setup बाकी है।')">Login / Signup</button>
-    <p style="font-size:12px;color:#888">Account security setup अभी बाकी है।</p>
-  </div>
-</div>
-
 <script>
-let messages=[];
+const promptBox=document.getElementById('prompt');
+const messages=document.getElementById('messages');
+let selectedFile=null;
+let chatHistory=[];
+
+function toggleMenu(){document.getElementById('sidebar').classList.toggle('open')}
+function hidePages(){
+ document.getElementById('home').style.display='none';
+ ['history','premium','settings','login'].forEach(id=>document.getElementById(id).style.display='none');
+}
+function showHome(){hidePages();document.getElementById('home').style.display='block';document.getElementById('sidebar').classList.remove('open')}
+function showPage(id){hidePages();document.getElementById(id).style.display='block';document.getElementById('sidebar').classList.remove('open')}
+function showHistory(){showPage('history');updateHistory()}
+function showPremium(){showPage('premium')}
+function showSettings(){showPage('settings')}
+function showLogin(){showPage('login')}
+function newChat(){messages.innerHTML='';chatHistory=[];updateHistory();showHome()}
+function quickAsk(t){promptBox.value=t;sendMessage()}
+function updateHistory(){
+ const el=document.getElementById('historylist');
+ el.innerHTML=chatHistory.length?chatHistory.map(x=>'<p>💬 '+escapeHTML(x)+'</p>').join(''):'अभी कोई पुरानी चैट नहीं है।';
+}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function addMessage(text,type){
-  const area=document.getElementById('messages');
-  const div=document.createElement('div');
-  div.className='message '+type;
-  div.textContent=text;
-  area.appendChild(div);
-  area.scrollTop=area.scrollHeight;
+ const d=document.createElement('div');d.className='msg '+type;d.textContent=text;messages.appendChild(d);
+ document.getElementById('home').style.display='none';
+ messages.scrollIntoView({block:'end',behavior:'smooth'});
+ return d;
 }
-function suggest(text){
-  document.getElementById('question').value=text;
-  sendMessage();
-}
-function newChat(){
-  messages=[];
-  document.getElementById('messages').innerHTML='';
-  document.getElementById('question').value='';
-}
-function openLogin(){
-  document.getElementById('loginModal').style.display='flex';
-}
-function closeLogin(){
-  document.getElementById('loginModal').style.display='none';
+function showFile(input){
+ selectedFile=input.files[0]||null;
+ document.getElementById('preview').textContent=selectedFile?'📎 '+selectedFile.name+' — अभी फोटो विश्लेषण की सुविधा सेटअप नहीं है।':'';
 }
 async function sendMessage(){
-  const input=document.getElementById('question');
-  const question=input.value.trim();
-  if(!question)return;
-  input.value='';
-  addMessage(question,'user');
-  messages.push({role:'user',content:question});
-  const loading=document.createElement('div');
-  loading.className='message bot';
-  loading.textContent='HelpSetu AI सोच रहा है...';
-  document.getElementById('messages').appendChild(loading);
-  try{
-    const response=await fetch('/.netlify/functions/chat',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:messages,language:'hi'})
-    });
-    const data=await response.json();
-    if(!response.ok)throw new Error(data.error||'कुछ समस्या हुई');
-    const reply=data.reply||data.response||data.message||'जवाब नहीं मिला।';
-    loading.textContent=reply;
-    messages.push({role:'assistant',content:reply});
-  }catch(error){
-    loading.textContent='माफ कीजिए, अभी जवाब नहीं मिल पाया। कृपया दोबारा कोशिश करें।';
-  }
+ const text=promptBox.value.trim();
+ if(!text)return;
+ addMessage(text,'user');
+ chatHistory.push(text);updateHistory();
+ promptBox.value='';
+ const loading=addMessage('जवाब तैयार हो रहा है...','bot');
+ try{
+   const prior=chatHistory.slice(-10).map((m,i)=>({role:i%2===0?'user':'assistant',content:m}));
+   const res=await fetch('/.netlify/functions/chat',{
+     method:'POST',
+     headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({messages:prior,language:document.getElementById('language').value})
+   });
+   const data=await res.json();
+   if(!res.ok)throw new Error(data.error||'Server error');
+   const answer=data.reply||data.response||data.message||'माफ़ कीजिए, जवाब नहीं मिला।';
+   loading.textContent=answer;
+   if(window.speechSynthesis && window.speakReplies) speak(answer);
+ }catch(e){
+   loading.textContent='माफ़ कीजिए, अभी जवाब नहीं मिल पाया। इंटरनेट या सर्वर जाँचें।';
+ }
+ selectedFile=null;document.getElementById('preview').textContent='';
+ document.getElementById('file').value='';
+}
+promptBox.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage()}});
+function startVoice(){
+ const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SpeechRecognition){alert('आपके ब्राउज़र में Voice Input सपोर्ट नहीं है। Chrome में कोशिश करें।');return}
+ const recognition=new SpeechRecognition();
+ recognition.lang=document.getElementById('language').value==='hi'?'hi-IN':'en-US';
+ recognition.onresult=e=>{promptBox.value+=(promptBox.value?' ':'')+e.results[0][0].transcript};
+ recognition.onerror=()=>alert('Voice Input नहीं चल पाया। माइक्रोफोन की अनुमति जाँचें।');
+ recognition.start();
+}
+function speak(text){
+ const utterance=new SpeechSynthesisUtterance(text);
+ utterance.lang=document.getElementById('language').value==='hi'?'hi-IN':'en-US';
+ speechSynthesis.speak(utterance);
+}
+function toggleTheme(){
+ document.body.classList.toggle('dark');
+ if(document.body.classList.contains('dark')){
+  document.body.style.background='#101326';document.body.style.color='#f2f3ff';
+  document.querySelector('.main').style.background='#101326';
+  document.querySelector('.topbar').style.background='#1b2040';
+  document.querySelector('.composer-wrap').style.background='#101326';
+  document.querySelector('.composer').style.background='#202747';
+  document.querySelectorAll('.page,.topic,.bot').forEach(e=>{e.style.background='#202747';e.style.color='#fff'});
+ }else{location.reload()}
 }
 </script>
 </body>
