@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
@@ -174,18 +174,6 @@ function addMessage(text,type){
  messages.scrollIntoView({block:'end',behavior:'smooth'});
  return d;
 }
-function showFile(input){
- selectedFile=input.files[0]||null;
- document.getElementById('preview').textContent=selectedFile?'📎 '+selectedFile.name+' — अभी फोटो विश्लेषण की सुविधा सेटअप नहीं है।':'';
-}
-async function sendMessage(){
- const text=promptBox.value.trim();
- if(!text)return;
- addMessage(text,'user');
- chatHistory.push(text);updateHistory();
- promptBox.value='';
- const loading=addMessage('जवाब तैयार हो रहा है...','bot');
- try{
    const prior=chatHistory.slice(-10).map((m,i)=>({role:i%2===0?'user':'assistant',content:m}));
    const res=await fetch('/.netlify/functions/chat',{
      method:'POST',
